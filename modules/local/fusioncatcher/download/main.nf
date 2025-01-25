@@ -3,7 +3,7 @@ process FUSIONCATCHER_DOWNLOAD {
     label 'process_medium'
 
     conda "bioconda::fusioncatcher=1.33"
-    container "docker.io/clinicalgenomics/fusioncatcher:1.33"
+    container "quay.io/biocontainers/fusioncatcher:1.33--hdfd78af_4"
 
     output:
     path "*"                , emit: reference

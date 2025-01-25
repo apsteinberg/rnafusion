@@ -24,7 +24,6 @@ mkdir -p ${outdir}
 cd ${outdir}
 
 nextflow run apsteinberg/rnafusion \
-  -r 3.0.2 \
   -c ${HOME}/rnafusion/conf/iris.config \
   -profile singularity,slurm \
   -work-dir ${outdir}/work \
