@@ -30,7 +30,7 @@ nextflow run apsteinberg/rnafusion \
   -work-dir ${outdir}/work \
   --email preskaa@mskcc.org \
   --build_references --all \
-  --cosmic_username <EMAIL> --cosmic_passwd <PASSWORD> \
+  --cosmic_username EMAIL --cosmic_passwd PASSWORD \
   --outdir ${outdir} \
   --genomes_base ${outdir}
 
