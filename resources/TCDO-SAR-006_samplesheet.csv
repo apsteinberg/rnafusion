@@ -1,0 +1,2 @@
+sample,fastq_1,fastq_2,strandedness
+TCDO-SAR-006,/data1/shahs3/users/preskaa/fastqs/illumina_rna/TCDO-SAR-006/IID_H201472_T01_01_WT01_3a167f9da084c94e_XPRO_0425_T_RNA_IGO_08822_JF_2_S4_R1_001.fastq.gz,/data1/shahs3/users/preskaa/fastqs/illumina_rna/TCDO-SAR-006/IID_H201472_T01_01_WT01_3a167f9da084c94e_XPRO_0425_T_RNA_IGO_08822_JF_2_S4_R2_001.fastq.gz,forward
