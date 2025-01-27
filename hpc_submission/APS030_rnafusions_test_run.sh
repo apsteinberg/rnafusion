@@ -33,5 +33,5 @@ nextflow run apsteinberg/rnafusion \
   --genomes_base ${reference} \
   --all \
   --input ${samplesheet} \
-  -resume 4539f975-ef52-4cb1-b393-c9e523482549
+  -resume
 
