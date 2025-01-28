@@ -28,11 +28,9 @@ nextflow run apsteinberg/rnafusion \
   -c ${HOME}/rnafusion/conf/iris.config \
   -profile singularity,slurm \
   -work-dir ${outdir}/work \
+  --arriba --starfusion \
   --email preskaa@mskcc.org \
   --outdir ${outdir} \
   --genomes_base ${reference} \
   --all \
-  --input ${samplesheet} \
-  --arriba --starfusion \
-  -resume
-
+  --input ${samplesheet}
