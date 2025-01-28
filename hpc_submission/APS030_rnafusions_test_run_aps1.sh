@@ -32,5 +32,4 @@ nextflow run apsteinberg/rnafusion \
   --email preskaa@mskcc.org \
   --outdir ${outdir} \
   --genomes_base ${reference} \
-  --all \
   --input ${samplesheet}
