@@ -16,8 +16,7 @@ module load singularity/3.7.1
 module load java/20.0.1
 
 # paths
-outdir=/data1/shahs3/users/preskaa/ThreeByThreeSarcoma/data/APS030_3x3_fusions/rnafusion_p22_test
-reference=/data1/shahs3/reference/ref-sarcoma/rnafusion/reference_ensembl_102
+outdir=/data1/shahs3/users/preskaa/ThreeByThreeSarcoma/data/APS030_3x3_fusions/rnafusion_p2_test
 samplesheet=$HOME/rnafusion/resources/TCDO-SAR-006_samplesheet.csv
 # reference paths
 arriba_ref=/data1/shahs3/reference/ref-sarcoma/rnafusion/reference/arriba
@@ -38,7 +37,6 @@ nextflow run apsteinberg/rnafusion \
   --arriba --starfusion \
   --email preskaa@mskcc.org \
   --outdir ${outdir} \
-  --genomes_base ${reference} \
   --input ${samplesheet} \
   --arriba_ref ${arriba_ref} --ensembl_ref ${ensembl_ref} \
   --fusion_report_ref ${fusionreport_ref} \
