@@ -16,7 +16,7 @@ module load singularity/3.7.1
 module load java/20.0.1
 
 # paths
-outdir=/data1/shahs3/users/preskaa/ThreeByThreeSarcoma/APS030_3x3_fusions/rnafusion_test/reference_v22
+outdir=/data1/shahs3/users/preskaa/ThreeByThreeSarcoma/data/APS030_3x3_fusions/rnafusion_test/reference_v22
 
 # make out directory
 mkdir -p ${outdir}
