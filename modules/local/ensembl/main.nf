@@ -26,7 +26,17 @@ process ENSEMBL_DOWNLOAD {
     wget ftp://ftp.ensembl.org/pub/release-${ensembl_version}/fasta/homo_sapiens/dna/Homo_sapiens.${params.genome}.dna.chromosome.{MT,X,Y}.fa.gz
 
     wget ftp://ftp.ensembl.org/pub/release-${ensembl_version}/gtf/homo_sapiens/Homo_sapiens.${params.genome}.${ensembl_version}.gtf.gz
-    wget ftp://ftp.ensembl.org/pub/release-${ensembl_version}/gtf/homo_sapiens/Homo_sapiens.${params.genome}.${ensembl_version}.chr.gtf.gz
+    # Check if the chr.gtf.gz file exists
+    wget --spider ftp://ftp.ensembl.org/pub/release-${ensembl_version}/gtf/homo_sapiens/Homo_sapiens.${genome}.${ensembl_version}.chr.gtf.gz
+    if [ $? -eq 0 ]; then
+        echo "chr.gtf.gz exists on Ensembl, downloading..."
+        wget -q ftp://ftp.ensembl.org/pub/release-${ensembl_version}/gtf/homo_sapiens/Homo_sapiens.${genome}.${ensembl_version}.chr.gtf.gz
+    else
+        echo "chr.gtf.gz not found. Creating one from the original GTF file..."
+        gunzip -c Homo_sapiens.${genome}.${ensembl_version}.gtf.gz | \
+            awk '(/^#/ || $1 ~ /^([1-9]|1[0-9]|2[0-2]|X|Y|MT)$/)' | \
+            gzip > Homo_sapiens.${genome}.${ensembl_version}.chr.gtf.gz
+    fi
     wget ftp://ftp.ensembl.org/pub/release-${ensembl_version}/fasta/homo_sapiens/cdna/Homo_sapiens.${params.genome}.cdna.all.fa.gz -O Homo_sapiens.${params.genome}.${ensembl_version}.cdna.all.fa.gz
 
     gunzip -c Homo_sapiens.${params.genome}.dna.chromosome.* > Homo_sapiens.${params.genome}.${ensembl_version}.all.fa
