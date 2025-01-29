@@ -7,7 +7,7 @@
 #SBATCH --job-name=fusions
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=preskaa@mskcc.org
-#SBATCH --output=slurm%j_rnafusions_reference.out
+#SBATCH --output=slurm%j_rnafusions_ref_p2.out
 
 source /home/preskaa/miniforge3/bin/activate nf-core
 
