@@ -33,7 +33,7 @@ process ENSEMBL_DOWNLOAD {
     else
         echo "chr.gtf.gz not found. Creating one from the original GTF file..."
         gunzip -c Homo_sapiens.${genome}.${ensembl_version}.gtf.gz | \
-            awk '(/^#/ || $1 ~ /^([1-9]|1[0-9]|2[0-2]|X|Y|MT)$/)' | \
+            awk '(/^#/ || \$1 ~ /^([1-9]|1[0-9]|2[0-2]|X|Y|MT)$/)' | \
             gzip > Homo_sapiens.${genome}.${ensembl_version}.chr.gtf.gz
     fi
     wget ftp://ftp.ensembl.org/pub/release-${ensembl_version}/fasta/homo_sapiens/cdna/Homo_sapiens.${params.genome}.cdna.all.fa.gz -O Homo_sapiens.${params.genome}.${ensembl_version}.cdna.all.fa.gz
