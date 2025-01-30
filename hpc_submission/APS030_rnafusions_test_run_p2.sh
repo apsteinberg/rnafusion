@@ -15,16 +15,12 @@ source /home/preskaa/miniforge3/bin/activate nf-core
 module load singularity/3.7.1
 module load java/20.0.1
 
-# paths
-outdir=/data1/shahs3/users/preskaa/ThreeByThreeSarcoma/data/APS030_3x3_fusions/rnafusion_p2_test
-samplesheet=$HOME/rnafusion/resources/TCDO-SAR-006_samplesheet.csv
-# reference paths
-arriba_ref=/data1/shahs3/reference/ref-sarcoma/rnafusion/reference/arriba
-ensembl_ref=/data1/shahs3/reference/ref-sarcoma/rnafusion/reference/ensembl_v79
-fusionreport_ref=/data1/shahs3/reference/ref-sarcoma/rnafusion/reference/fusion_report_db
-hgnc_ref=/data1/shahs3/reference/ref-sarcoma/rnafusion/reference/hgnc
-starfusion_ref=/data1/shahs3/reference/ref-sarcoma/GRCh38/FusionInspector/GRCh38_gencode_v22_CTAT_lib_Mar012021.STAR_v2.7.11a.plug-n-play
 
+
+# paths
+outdir=/data1/shahs3/users/preskaa/ThreeByThreeSarcoma/data/APS030_3x3_fusions/rnafusion_grch38p2_test
+reference=/data1/shahs3/reference/ref-sarcoma/rnafusion/reference_GRCh38P2
+samplesheet=$HOME/rnafusion/resources/TCDO-SAR-006_samplesheet.csv
 # make out directory
 mkdir -p ${outdir}
 
@@ -37,8 +33,7 @@ nextflow run apsteinberg/rnafusion \
   --arriba --starfusion \
   --email preskaa@mskcc.org \
   --outdir ${outdir} \
+  --genomes_base ${reference} \
   --input ${samplesheet} \
-  --arriba_ref ${arriba_ref} --ensembl_ref ${ensembl_ref} \
-  --fusion_report_ref ${fusionreport_ref} \
-  --hgnc_ref ${hgnc_ref} --starfusion_ref ${starfusion_ref} \
-  --starindex
+  --cram arriba,starfusion
+
