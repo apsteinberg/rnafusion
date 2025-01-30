@@ -35,5 +35,6 @@ nextflow run apsteinberg/rnafusion \
   --outdir ${outdir} \
   --genomes_base ${reference} \
   --input ${samplesheet} \
-  --cram arriba,starfusion
+  --cram arriba,starfusion \
+  --ensembl_version 79
 
